@@ -3,6 +3,13 @@ import os, json
 from flask import Flask, render_template, jsonify, request, send_from_directory
 from flask_socketio import SocketIO, send, emit
 
+# from OpenSSL import SSL
+
+
+# context = SSL.Context(SSL.TLSv1_2_METHOD)
+# context.use_privatekey_file('privateKey.key')
+# context.use_certificate_file('certificate.crt')
+
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 socketio = SocketIO(app)
@@ -144,5 +151,5 @@ def favicon():
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True, host="0.0.0.0", ssl_context='adhoc')
-    # socketio.run(app, debug=True)
+    # socketio.run(app, debug=True, host="0.0.0.0", ssl_context=context)
+    socketio.run(app, debug=True)

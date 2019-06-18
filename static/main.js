@@ -4,7 +4,7 @@ var name;
 var connectedUser;
 const socket = io();
 
-navigator.getUserMedia = ( navigator.getUserMedia ||
+navigator.getUserMedia = ( navigator.getUserMedia || navigator.mediaDevices.getUserMedia ||
     navigator.webkitGetUserMedia ||
     navigator.mozGetUserMedia ||
     navigator.msGetUserMedia);
